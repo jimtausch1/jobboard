@@ -1,0 +1,31 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "jobboard server",
+      "command": "npm start",
+      "cwd": "${workspaceFolder}/server"
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "jobboard client",
+      "command": "vite",
+      "cwd": "${workspaceFolder}/client"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "jobboard",
+      "configurations": [
+        "jobboard server",
+        "jobboard client"
+      ]
+    }
+  ]
+}
