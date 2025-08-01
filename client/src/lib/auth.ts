@@ -1,7 +1,11 @@
 // Disclaimer: This example keeps the access token in LocalStorage just because
 // it's simpler, but in a real application you may want to use cookies instead
 // for better security. Also, it doesn't handle token expiration.
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+
+interface ExtendedJwt extends JwtPayload {
+  email: string | undefined;
+}
 
 const API_URL = 'http://localhost:9000';
 
@@ -40,9 +44,9 @@ export function logout() {
 }
 
 function getUserFromToken(token: string) {
-  const claims = jwtDecode(token);
+  const claims = jwtDecode(token) as ExtendedJwt;
   return {
     id: claims.sub,
-    // email: claims.email,
+    email: claims.email,
   };
 }

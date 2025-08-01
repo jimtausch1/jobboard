@@ -17,3 +17,8 @@ type Jobs = {
   items: Job[];
   totalCount: number;
 }
+
+type User = {
+  id: string | undefined;
+  email: string | undefined;
+}
